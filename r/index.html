@@ -120,14 +120,14 @@
         // Get a reference to the database service
         const db = getDatabase(app);
         const now = new Date()
-
-        set(ref(db, 'prod/nav/' + new Date().getTime()), {
+        set(ref(db, 'prod/nav/' + new Date().toUTCString()), {
                 useragent: navigator.userAgent,
+                epoch: new Date().getTime(),
                 page: "/r"
             });
         document.getElementById('QRForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            set(ref(db, 'prod/form/' + new Date().getTime()), {
+            set(ref(db, 'prod/form/' + new Date().toUTCString()), {
                 QRoll_id: document.getElementById('code').value,
                 location: document.getElementById('subject').value,
                 epoch: new Date().getTime(),
@@ -158,6 +158,6 @@
 </div>
 <footer>
     <p>
-        v1.0.0-b12 - db3-prod
+        v1.0.0-b13 - db4-prod
     </p>
 </footer>
