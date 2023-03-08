@@ -120,7 +120,7 @@
         // Get a reference to the database service
         const db = getDatabase(app);
         const now = new Date()
-         
+        
         document.getElementById('QRForm').addEventListener('submit', function(e) {
             e.preventDefault();
             set(ref(db, 'prod/' + Math.random().toString(36).slice(2, 7)), {
@@ -129,9 +129,9 @@
                 epoch: new Date().getTime(),
                 useragent: navigator.userAgent
             });
-         
-            alert('Your info has been submitted');
             document.getElementById('QRForm').reset();
+            location.href='/QRoll/r/thx'
+            
         });
         </script>
 </div>
@@ -154,6 +154,6 @@
 </div>
 <footer>
     <p>
-        v1.0.0-b11 - db3-prod
+        v1.0.0-b12 - db3-prod
     </p>
 </footer>
