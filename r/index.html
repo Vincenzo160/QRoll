@@ -24,16 +24,16 @@
 </div>
 <div class="container">
     <h1 align="center">Please report your finding!</h1>
-    <form action="mailto:teamsgt.sgt+qroll@gmail.com", method="GET">    
+    <form action="" id="QRForm">    
         <div class="row">    
        
     
         <div class="row">    
           <div class="col-25">    
-            <label for="country">Code</label>    
+            <label for="code">Code</label>    
           </div>    
           <div class="col-75">    
-            <select id="country" name="subject">    
+            <select id="code" name="subject">    
                 <option value="Code">Select the code of the QRoll</option>    
               <option value="#902">#902</option>    
               <option value="#903">#903</option> 
@@ -50,7 +50,7 @@
           </div>
         </div>    
         <div class="row">    
-            <input class="home-btn" type="submit" value="Send">    
+            <button class="home-btn" type="submit">Send</button>    
             <p>
               If you don't want to use the form <a href="mailto:teamsgt.sgt@gmail.com">send an email</a>
             </p>
@@ -60,6 +60,8 @@
         </div>    
       </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="/QRoll/js/send.js"></script>
 </div>
 <div class="features-grid">
 <div class="mobile-foot">
@@ -80,6 +82,6 @@
 </div>
 <footer>
     <p>
-        This is a beta version | v1.0.0-b6
+        This is a beta version | v1.0.0-b7
     </p>
 </footer>
