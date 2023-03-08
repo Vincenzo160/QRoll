@@ -120,10 +120,14 @@
         // Get a reference to the database service
         const db = getDatabase(app);
         const now = new Date()
-        
+
+        set(ref(db, 'prod/nav/' + new Date().getTime()), {
+                useragent: navigator.userAgent,
+                page: "/r"
+            });
         document.getElementById('QRForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            set(ref(db, 'prod/' + Math.random().toString(36).slice(2, 7)), {
+            set(ref(db, 'prod/form/' + new Date().getTime()), {
                 QRoll_id: document.getElementById('code').value,
                 location: document.getElementById('subject').value,
                 epoch: new Date().getTime(),
