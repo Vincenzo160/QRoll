@@ -526,6 +526,13 @@ select {
 }
 
 @media all and (max-width:900px) {
+    iframe {
+        margin-bottom: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
     .features-grid {
         display: -webkit-box;
         display: flex;
