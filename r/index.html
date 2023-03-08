@@ -119,16 +119,19 @@
          
         // Get a reference to the database service
         const db = getDatabase(app);
+        const now = new Date()
          
         document.getElementById('QRForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            set(ref(db, 'sent/' + Math.random().toString(36).slice(2, 7)), {
-                qrid: document.getElementById('code').value,
-                loc: document.getElementById('subject').value
+            set(ref(db, 'prod/' + Math.random().toString(36).slice(2, 7)), {
+                QRoll_id: document.getElementById('code').value,
+                location: document.getElementById('subject').value,
+                epoch: new Date().getTime(),
+                useragent: navigator.userAgent
             });
          
             alert('Your info has been submitted');
-            document.getElementById('frmContact').reset();
+            document.getElementById('QRForm').reset();
         });
         </script>
 </div>
@@ -151,6 +154,6 @@
 </div>
 <footer>
     <p>
-        v1.0.0-b9 - db2-prod
+        v1.0.0-b10 - db3-prod
     </p>
 </footer>
