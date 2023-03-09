@@ -42,7 +42,7 @@
             <label for="Location">Location</label>
           </div>    
           <div class="col-75">    
-            <textarea id="subject" name="body" placeholder="Please describe where you found the QRoll, use an address and reference points, or even better use geographical cordinates" style="height:200px"></textarea>    
+            <textarea id="subject" maxlength="1200" name="body" placeholder="Please describe where you found the QRoll, use an address and reference points, or even better use geographical cordinates" style="height:200px"></textarea>    
           </div>
         </div>    
         <div class="row">    
@@ -92,7 +92,7 @@
                 useragent: navigator.userAgent
             });
             document.getElementById('QRForm').reset();
-            // location.href='/QRoll/r/thx'
+            location.href='/QRoll/r/thx'
             
         });
         </script>
