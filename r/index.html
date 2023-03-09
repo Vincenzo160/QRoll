@@ -75,21 +75,24 @@
         // Get a reference to the database service
         const db = getDatabase(app);
         const now = new Date()
+        const qrid = document.getElementById('code').value
         set(ref(db, 'prod/nav/' + new Date().toUTCString()), {
                 useragent: navigator.userAgent,
                 epoch: new Date().getTime(),
                 page: "/r"
             });
+        console.log(db, 'prod/form/' + document.getElementById('code').value + '/')
         document.getElementById('QRForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            set(ref(db, 'prod/form/' + new Date().toUTCString()), {
+            set(ref(db, 'prod/form/' + document.getElementById('code').value + '/' + new Date().getTime()), {
                 QRoll_id: document.getElementById('code').value,
                 location: document.getElementById('subject').value,
                 epoch: new Date().getTime(),
+                date: new Date().toUTCString(),
                 useragent: navigator.userAgent
             });
             document.getElementById('QRForm').reset();
-            location.href='/QRoll/r/thx'
+            // location.href='/QRoll/r/thx'
             
         });
         </script>
@@ -113,6 +116,6 @@
 </div>
 <footer>
     <p>
-        v1.0.0-b18 - db6-prod
+        v1.0.0-b18 - db7-prod
     </p>
 </footer>
