@@ -69,7 +69,9 @@ h1 {
     }
 
 
-
+.none {
+    all:unset;
+}
     .reveal.active {
         transform: translateY(0px);
         opacity: 1;
