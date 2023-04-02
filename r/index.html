@@ -58,6 +58,8 @@
     <script>
       document.querySelector('input').addEventListener('input', function() {
         document.getElementById("yt-embed").style.display = "none";
+        var elem = document.getElementById("yt-embed");
+        elem.remove();
         document.getElementById("stop").style.display = "block";
     });
         setTimeout(function() {
@@ -112,6 +114,6 @@
 <div class="features-grid">
 <footer>
     <p>
-        v1.0.0-b25 - db7-prod
+        v1.0.0-b26 - db7-prod
     </p>
 </footer>
