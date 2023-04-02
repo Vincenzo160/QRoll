@@ -543,6 +543,10 @@ select {
         margin-right: auto;
         width: 80%;
     }
+    .home-text {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
     .features-grid {
         display: -webkit-box;
         display: flex;
