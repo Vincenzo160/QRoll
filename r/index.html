@@ -20,7 +20,9 @@
 <body>     
 <div class="container">
     <h1 align="center">Never Gonna Give You Up</h1>
-    <p align="center"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=0&autoplay=1&fs=0&modestbranding=1&disablekb=1&end=25" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></p>
+    <p align="center" id="holder" style="display: none">The video has finished, report the QRoll with the form</p>
+    <p align="center" id="stop" style="display: none">The video has been stopped due to input</p>
+    <p align="center"><iframe id="yt-embed" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?controls=0&autoplay=1&fs=0&modestbranding=1&disablekb=1&end=60" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe></p>
 </div>
 <div class="container">
     <h1 align="center">Please report your finding!</h1>
@@ -53,6 +55,16 @@
         </div>    
       </form>
     </div>
+    <script>
+      document.querySelector('input').addEventListener('input', function() {
+        document.getElementById("yt-embed").style.display = "none";
+        document.getElementById("stop").style.display = "block";
+    });
+        setTimeout(function() {
+      document.getElementById("yt-embed").style.display = "none";
+      document.getElementById("holder").style.display = "block";
+    }, 60000);
+    </script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
