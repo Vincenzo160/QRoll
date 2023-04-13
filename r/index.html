@@ -35,7 +35,8 @@
           </div>    
           <div class="col-75">    
             <!-- TODO Fetch codes from DB -->
-            <input id="code" type="tel" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="Please enter the 3 digit code found on the QRoll">
+            <input id="code" type="tel" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="Please enter the 3 digit code found on the QRoll" required>
+            <p id="idnone" style="display: none;">The code is absent or unreadable</p>
           </div>
         </div>    
         <div class="row">
@@ -54,10 +55,24 @@
             <p id="switchon">
               Can't find the code? <a onclick="toggleimg()">open reference</a>
             </p>
-            <img class="qrimg" src="/QRoll/assets/qrref.png" id="qrimg" alt="QRCode" style="display: none;">
+            <div id="qrimg" style="display: none;">
+              <img class="qrimg" src="/QRoll/assets/qrref.png" alt="QRCode"">
+              <p><a onclick="noid()">The code is absent or unreadable?</a></p>
+            </div>
           </div>    
         </form>
     </div>
+    <script>
+    function noid() {
+      document.getElementById('QRForm').reset();
+      var code = document.getElementById('code')
+      var txtplc = document.getElementById('idnone')
+      code.value = "999";
+      code.disabled = true;
+      code.style.display = "none";
+      txtplc.style.display = "block";
+    }
+    </script>
     <script>
     function toggleimg() {
     var qrimg = document.getElementById("qrimg");
