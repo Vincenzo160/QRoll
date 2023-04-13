@@ -17,7 +17,15 @@
     </div>
 </body>
 <footer>
-    <p>
-        v1.0.0-b27 - db7-prod
+    <p id="version">
+        vx.x.x - db
     </p>
 </footer>
+<script>
+  fetch('https://vincenzo160.github.io/QRoll/version')
+  .then(response => response.json())
+  .then(data => {
+    const latestCommit = data[0].sha;
+    document.getElementById('version').innerHTML = version;
+  });
+</script>

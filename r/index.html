@@ -28,7 +28,6 @@
     <h1 align="center">Please report your finding!</h1>
     <form action="" id="QRForm">    
         <div class="row">    
-       
     
         <div class="row">    
           <div class="col-25">    
@@ -47,14 +46,34 @@
             <textarea id="subject" maxlength="1200" name="body" placeholder="Please describe where you found the QRoll, use an address and reference points, or even better use geographical cordinates" style="height:200px"></textarea>    
           </div>
         </div>    
-        <div class="row">    
+        <div class="row">
             <input class="home-btn" type="submit" value="Send">    
-            <p>
-              If you don't want to use the form <a href="mailto:teamsgt.sgt@gmail.com">send an email</a>
+            <p id="switchoff" style="display: none;">
+              Can't find the code? <a onclick="toggleimg()">close reference</a>
             </p>
-        </div>    
-      </form>
+            <p id="switchon">
+              Can't find the code? <a onclick="toggleimg()">open reference</a>
+            </p>
+            <img class="qrimg" src="/QRoll/assets/qrref.png" id="qrimg" alt="QRCode" style="display: none;">
+          </div>    
+        </form>
     </div>
+    <script>
+    function toggleimg() {
+    var qrimg = document.getElementById("qrimg");
+    var offtxt = document.getElementById("switchoff");
+    var ontxt = document.getElementById("switchon");
+    if (qrimg.style.display === "none") {
+      ontxt.style.display = "none";
+      offtxt.style.display = "block";
+      qrimg.style.display = "block";
+    } else {
+      ontxt.style.display = "block";
+      offtxt.style.display = "none";
+      qrimg.style.display = "none";
+    }
+  }
+    </script>
     <script>
       document.querySelector('input').addEventListener('input', function() {
         document.getElementById("yt-embed").style.display = "none";
@@ -73,15 +92,15 @@
         import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
          
         // Paste the code from Firebase
-        const firebaseConfig = {
-        apiKey: "AIzaSyDYymYZFqhXG6U5weoSltXIwJfinvBAQsc",
-        authDomain: "qroll-9eefa.firebaseapp.com",
-        databaseURL: "https://qroll-9eefa-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "qroll-9eefa",
-        storageBucket: "qroll-9eefa.appspot.com",
-        messagingSenderId: "199837968072",
-        appId: "1:199837968072:web:78e7dae9cf3d5a62e1a7fd"
-        };
+        // const firebaseConfig = {
+        // apiKey: "AIzaSyDYymYZFqhXG6U5weoSltXIwJfinvBAQsc",
+        // authDomain: "qroll-9eefa.firebaseapp.com",
+        // databaseURL: "https://qroll-9eefa-default-rtdb.europe-west1.firebasedatabase.app",
+        // projectId: "qroll-9eefa",
+        // storageBucket: "qroll-9eefa.appspot.com",
+        // messagingSenderId: "199837968072",
+        // appId: "1:199837968072:web:78e7dae9cf3d5a62e1a7fd"
+        // };
          
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -113,7 +132,15 @@
 </div>
 <div class="features-grid">
 <footer>
-    <p>
-        v1.0.0-b27 - db7-prod
+    <p id="version">
+        vx.x.x - db
     </p>
 </footer>
+<script>
+  fetch('https://vincenzo160.github.io/QRoll/version')
+  .then(response => response.json())
+  .then(data => {
+    const latestCommit = data[0].sha;
+    document.getElementById('version').innerHTML = version;
+  });
+</script>

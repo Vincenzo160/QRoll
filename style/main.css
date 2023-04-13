@@ -67,7 +67,12 @@ h1 {
         background-color: var(--main-hover-color);
 
     }
-
+.qrimg {
+    width: 40%;
+    height: auto;
+    margin-left: 10px;
+    display: block;
+}
 
 .none {
     all:unset;
@@ -536,6 +541,12 @@ select {
 }
 
 @media all and (max-width:900px) {
+    .qrimg {
+        width: 60%;
+        height: auto;
+        margin-left: 10px;
+        display: block;
+    }
     iframe {
         margin-bottom: 5px;
         display: block;
