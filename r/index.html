@@ -57,7 +57,7 @@
             </p>
             <div id="qrimg" style="display: none;">
               <img class="qrimg" src="/QRoll/assets/qrref.png" alt="QRCode"">
-              <p><a onclick="noid()">The code is absent or unreadable?</a></p>
+              <p><a id="noidmode" onclick="noid()">The code is absent or unreadable?</a></p>
             </div>
           </div>    
         </form>
@@ -67,9 +67,11 @@
       document.getElementById('QRForm').reset();
       var code = document.getElementById('code')
       var txtplc = document.getElementById('idnone')
+      var noidmode = document.getElementById('noidmode')
       code.value = "999";
       code.disabled = true;
       code.style.display = "none";
+      noidmode.style.display = "none";
       txtplc.style.display = "block";
     }
     </script>
