@@ -140,7 +140,7 @@
   fetch('https://vincenzo160.github.io/QRoll/version.json')
   .then(response => response.json())
   .then(data => {
-    const latestCommit = data[0].sha;
+    var version = data.version;
     document.getElementById('version').innerHTML = version;
   });
 </script>
