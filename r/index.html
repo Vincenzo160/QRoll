@@ -133,7 +133,7 @@
         set(ref(db, 'prod/nav/' + new Date().getTime(),), {
                 useragent: navigator.userAgent,
                 epoch: new Date().getTime(),
-                time: new Date().toUTCString(),
+                date: new Date().toUTCString(),
                 page: "/r"
             });
         console.log(db, 'prod/form/' + document.getElementById('code').value + '/')
