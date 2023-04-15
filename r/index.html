@@ -65,7 +65,14 @@
           </div>    
         </form>
     </div>
-  <script>
+  <script> //Listeners
+  // Input handler
+  let inputElem = document.getElementById('code');
+  inputElem.addEventListener('input', () => {
+    if (inputElem.value === '999') {
+      noid()
+    }
+  });  
   // Embed handler
   document.querySelector('input').addEventListener('input', function() {
       document.getElementById("yt-embed").style.display = "none";
