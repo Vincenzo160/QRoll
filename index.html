@@ -21,11 +21,4 @@
         vx.x.x - db
     </p>
 </footer>
-<script>
-  fetch('https://vincenzo160.github.io/QRoll/version.json?nocache=' + (new Date()).getTime())
-  .then(response => response.json())
-  .then(data => {
-    var version = data.version;
-    document.getElementById('version').innerHTML = version;
-  });
-</script>
+<script src="/QRoll/scripts/getversion.js"></script>

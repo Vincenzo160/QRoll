@@ -19,22 +19,32 @@ const app = initializeApp(firebaseConfig);
 // Form 
 const db = getDatabase(app);
 set(ref(db, 'prod/nav/' + new Date().getTime(),), {
-        useragent: navigator.userAgent,
-        epoch: new Date().getTime(),
-        date: new Date().toUTCString(),
-        page: "/r"
+    useragent: navigator.userAgent,
+    epoch: new Date().getTime(),
+    date: new Date().toUTCString(),
+    page: "/r"
+})
+.then(() => {
+    console.log(db, 'prod/form/' + document.getElementById('code').value + '/')
+    document.getElementById('QRForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        set(ref(db, 'prod/form/' + document.getElementById('code').value + '/' + new Date().getTime()), {
+            QRoll_id: document.getElementById('code').value,
+            location: document.getElementById('subject').value,
+            epoch: new Date().getTime(),
+            date: new Date().toUTCString(),
+            useragent: navigator.userAgent
+        })
+        .then(() => {
+            document.getElementById('QRForm').reset();
+            location.href='/QRoll/r/thx'
+        })
+        .catch((error) => {
+            location.href='/QRoll/r/error'
+            // Display error message to user
+        });
     });
-console.log(db, 'prod/form/' + document.getElementById('code').value + '/')
-document.getElementById('QRForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    set(ref(db, 'prod/form/' + document.getElementById('code').value + '/' + new Date().getTime()), {
-        QRoll_id: document.getElementById('code').value,
-        location: document.getElementById('subject').value,
-        epoch: new Date().getTime(),
-        date: new Date().toUTCString(),
-        useragent: navigator.userAgent
-    });
-    document.getElementById('QRForm').reset();
-    location.href='/QRoll/r/thx'
-    
+})
+.catch((error) => {
+    location.href='/QRoll/r/error'
 });
