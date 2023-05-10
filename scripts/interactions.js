@@ -30,3 +30,11 @@ function toggleimg() {
     qrimg.style.display = "none";
     }
 }
+
+// Disable Button
+function disablebtn() {
+    const button = document.getElementById('submit-button');
+    button.disabled = true;
+    button.value = 'Sending...';
+    button.className = 'btn-disabled';
+}

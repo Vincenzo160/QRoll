@@ -196,13 +196,29 @@ header {
         padding: 10px 30px;
         border-radius: 5px;
         background-color: var(--main-color);
-        transition: .35s;
+        transition: all .35s ease-in-out;
     }
 
     .btn-area:hover {
         background-color: var(--main-hover-color);
     }
-
+    .btn-disabled {
+        margin-top: 15px;
+        width: auto;
+        padding: 9px 51px;
+        border-radius: 50px;
+        border: none;
+        background: #4e545c;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all .35s ease-in-out;
+        animation-duration: 600ms;
+    }
+    .btn-disabled-hover:hover {
+        background-color: #4f545c;
+    }
     ::selection {
         color: #fff;
         background: #007bff;
@@ -234,8 +250,7 @@ header {
         font-weight: bold;
         font-size: 20px;
         cursor: pointer;
-        transition: .35s;
-        animation-name: enterbtn1;
+        transition: all .35s ease-in-out;
         animation-duration: 600ms;
     }
 

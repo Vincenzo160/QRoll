@@ -27,6 +27,7 @@ set(ref(db, 'prod/nav/' + new Date().getTime(),), {
 .then(() => {
     console.log(db, 'prod/form/' + document.getElementById('code').value + '/')
     document.getElementById('QRForm').addEventListener('submit', function(e) {
+        disablebtn()
         e.preventDefault();
         set(ref(db, 'prod/form/' + document.getElementById('code').value + '/' + new Date().getTime()), {
             QRoll_id: document.getElementById('code').value,
@@ -41,7 +42,6 @@ set(ref(db, 'prod/nav/' + new Date().getTime(),), {
         })
         .catch((error) => {
             location.href='/QRoll/r/error'
-            // Display error message to user
         });
     });
 })
